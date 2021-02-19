@@ -1,22 +1,78 @@
-This project contains :
-* support for download and install from command-line of ITS-tools run : ./install_all.sh
-* support for invocation of its-tools from the command line for PNMCC style queries
+# ITS-Tools packaged for the Model-Checking Contest
 
-We are building support for more command line flags.
+ This project contains :
+* support for downloading and deploying ITS-tools. Simply run : ./install_all.sh
+* wrapper scripts used in the contest, in particular `BenchKit_head.sh` that supports invocation of its-tools from the command line for PNMCC style queries
 
-You can use ./runeclipse with flags :
 
-* -pnfolder $(pwd)/INPUTS/AutoFlight-PT-01a  : (MANDATORY) Working folder containing model.pnml and examination.xml. 
-NB : runatest.sh can decompress the appropriate folder, it just takes the model name as input, provided you ran install_inputs.sh.
+## Model Checking Contest Awards
 
-* -examination ReachabilityCardinality : Examination name in PNMCC standard format
+This tool  won the following awards at the [Model-Checking Contest 2020 edition](https://mcc.lip6.fr/2020/) :
+
+ * Reachability gold : <img src="http://mcc.lip6.fr/certificates/2020/gold-Reachability-2020.png" alt="Gold Reachability" width="50px" height="50px">
+ * CTL, LTL, StateSpace bronze : 
+ <img src="http://mcc.lip6.fr/certificates/2020/bronze-CTL-2020.png" alt="Bronze CTL" width="50px" height="50px">
+ <img src="http://mcc.lip6.fr/certificates/2020/bronze-LTL-2020.png" alt="Bronze LTL" width="50px" height="50px">
+ <img src="http://mcc.lip6.fr/certificates/2020/bronze-StateSpace-2020.png" alt="Bronze StateSpace" width="50px" height="50px">
+
+It also got the second place (silver ?) in the [Deadlock Detection](https://mcc.lip6.fr/2020/index.php?CONTENT=results/ReachabilityDeadlock.html&TITLE=Results%20for%20ReachabilityDeadlock) category, though in 2020 this category was merged into "GlobalProperties" (for the first time) so there is no related medal.
+
+In pure symbolic and structural reduction mode it also participated in conjunction with Lola, as the tool ITS-Lola. 
+ITS-lola project lives here https://github.com/yanntm/its-lola.
+
+## Usage
+
+As this tool conforms to the Model-Checking contest rules, please see the [MCC instructions](https://mcc.lip6.fr/pdf/MCC2020-SubmissionManual.pdf) to see how these `BenchKit_head.sh` scripts are meant to be invoked, and what is expected outputs from the tool in terms of verdict reporting.
+
+To install, simply clone this repository and run `install_all.sh` script. This build is Linux specific as these are the conditions in the contest.
+
+To analyze a model you need : a `model.pnml` Petri net and an `Examination.xml` property file in the current working directory.
+
+Then define the environment variables `BK EXAMINATION` (to one of `ReachabilityDeadlock,UpperBounds,ReachabilityCardinality,ReachabilityFireability,LTLFireability,LTLCardinality,CTLFireability,CTLCardinality`) and `BK TIME CONFINEMENT` (in seconds).
+
+If you are not running in the default MCC path `/home/mcc/BenchKit`, also define `BK_BIN_PATH` to the installation folder where you ran `./install_all.sh`.
+
+Finally invoke `BenchKit_head.sh` script.
+
+# Testing
+
+This tool being compliant to MCC can be tested using our MCC testing framework https://github.com/yanntm/pnmcc-tests :
+
+Set it up like this :
+```
+git clone https://github.com/yanntm/ITS-Tools-MCC.git
+cd its-lola
+./install_all.sh
+git clone https://github.com/yanntm/pnmcc-tests.git
+cp -r pnmcc-tests/* .
+./install_oracle.sh
+```
+
+Then for any test in `oracle/` you can run :
+```
+./run_test.pl oracle/Angiogenesis-PT-05-LTLF.out
+``` 
+
+To ensure the build is reproducible there is a Github Actions attached to this repository that runs this exact test, see https://github.com/yanntm/its-lola/actions for some logs of it running.
+
+# Additional Flags
+
+You can pass extra flags when invoking BenchKit_head.sh that will affect the behavior of the tool. 
+
+* -rebuildPNML : at the end of the reduction phase, output a reduced model and property.
 
 Depending on the examination lots of different things happen. 
--its responds to all examination, -smt only supports ReachabilityXX, -ltsmin only supports Reachability and LTL... 
 
-MANDATORY (unless you only use -its), but already set by default, just make sure to run script ./install_z3.sh)
+You can modify the flags that are presently passed to `runeclipse.sh` in the `BenchKit_head.sh` script :
 
-* -z3path $(pwd)/z3/bin/z3  : Path to z3 4.3 or better
+Solution engines :
+* -its responds to all examination, and uses hierarchical set decision diagrams as solution engine 
+* -smt only supports ReachabilityXX, and uses a BMC/Induction approach reliant on Z3 
+* -ltsmin supports Reachability and LTL and uses LTSmin  https://ltsmin.utwente.nl/ as solution engine
+
+Additional flags :
+* -greatspnpath $BINDIR/greatspn/ -order META : these flags make the -its engine use the variable ordering suggested by GreatSPN's heuristics. See https://github.com/greatspn/SOURCES for more values of the -order flags you could use.
+* -manyOrder divide the available time in slices to try several different variable orderings
 
 Solution engines, activate as many as you wish, they run in portfolio : -its -smt -ltsmin -onlyGal
 
@@ -43,6 +99,8 @@ If ltsmin is set, also generates gal.so (we can't compile without ltsmin headers
 
 More options are under development to leverage other existing transformations to GAL, please ask <mailto:yann.thierry-mieg@lip6.fr> if you
  need a command-line tool that processes some of the other languages we support with ITS-tools (e.g. Uppaaal xta, Tina tpn, Divine DVE, Spin promela...).
+
+### Acknowledgements
  
 Packaging and development by Yann Thierry-Mieg, working at LIP6, Sorbonne Université, CNRS.
 This project source code is released under the terms of [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).

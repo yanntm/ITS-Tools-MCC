@@ -1,0 +1,27 @@
+name: Linux Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install packages
+      run: sudo apt-get install gcc libpopt-dev ;
+    - name: Install ITS 
+      run: ./install_all.sh
+    - name: Grab test framework
+      run: git clone https://github.com/yanntm/pnmcc-tests.git ; cp -r pnmcc-tests/* . ; ./install_oracle.sh
+    - name: make angio tests
+      run: for i in oracle/Angiogenesis-PT-05-*.out ; do ./run_test.pl $i ; done ;
+    - name: some colored tests
+      run: for i in oracle/AirplaneLD-COL-0020-*.out ; do ./run_test.pl $i ; done ;
+
+      
