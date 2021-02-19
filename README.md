@@ -53,7 +53,7 @@ Then for any test in `oracle/` you can run :
 ./run_test.pl oracle/Angiogenesis-PT-05-LTLF.out
 ``` 
 
-To ensure the build is reproducible there is a Github Actions attached to this repository that runs this exact test, see https://github.com/yanntm/its-lola/actions for some logs of it running.
+To ensure the build is reproducible there is a Github Actions attached to this repository that runs this exact test, see https://github.com/yanntm/ITS-Tools-MCC/actions for some logs of it running.
 
 # Additional Flags
 

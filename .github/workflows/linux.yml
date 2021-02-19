@@ -19,9 +19,10 @@ jobs:
       run: ./install_all.sh
     - name: Grab test framework
       run: git clone https://github.com/yanntm/pnmcc-tests.git ; cp -r pnmcc-tests/* . ; ./install_oracle.sh
-    - name: make angio tests
-      run: for i in oracle/Angiogenesis-PT-05-*.out ; do ./run_test.pl $i ; done ;
+    - name: make some angio tests
+      run: for i in oracle/Angiogenesis-PT-05-R*.out ; do ./run_test.pl $i ; done ;
     - name: some colored tests
-      run: for i in oracle/AirplaneLD-COL-0020-*.out ; do ./run_test.pl $i ; done ;
+      run: for i in oracle/AirplaneLD-COL-0020-R*.out ; do ./run_test.pl $i ; done ;
+
 
       
