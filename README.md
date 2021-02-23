@@ -41,7 +41,7 @@ This tool being compliant to MCC can be tested using our MCC testing framework h
 Set it up like this :
 ```
 git clone https://github.com/yanntm/ITS-Tools-MCC.git
-cd its-lola
+cd ITS-Tools-MCC
 ./install_all.sh
 git clone https://github.com/yanntm/pnmcc-tests.git
 cp -r pnmcc-tests/* .
