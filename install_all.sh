@@ -23,4 +23,9 @@ set -e
 wget --progress=dot:mega https://yanntm.github.io/Spot-BinaryBuilds/ltlfilt
 chmod a+x ltlfilt
 
+wget --progress=dot:mega https://yanntm.github.io/Spot-BinaryBuilds/ltl2tgba
+chmod a+x ltl2tgba
+
+wget --progress=dot:mega https://yanntm.github.io/Spot-BinaryBuilds/autfilt
+chmod a+x autfilt
 
