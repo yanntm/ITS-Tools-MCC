@@ -22,3 +22,5 @@ set -e
 
 
 ./install_spot.sh
+
+mkdir bin/
