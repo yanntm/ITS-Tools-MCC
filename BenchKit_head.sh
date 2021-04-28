@@ -11,7 +11,7 @@
 # BK_EXAMINATION: it is a string that identifies your "examination"
 
 set -x
-export BINDIR=$BK_BIN_PATH
+export BINDIR=$BK_BIN_PATH/../
 
 export MODEL=$(pwd)
 
