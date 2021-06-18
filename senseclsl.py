@@ -5,7 +5,7 @@ import sys
 # Usage script.py file.hoa
 
 aut = spot.automaton(sys.argv[1])
-neg = spot.dualize(aut)
+neg = spot.complement(aut)
 neg = neg.postprocess('TGBA')
 st_inv = spot.is_stutter_invariant(aut)
 cl_inv = spot.product(spot.closure(aut), neg).is_empty()
