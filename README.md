@@ -7,18 +7,35 @@
 
 ## Model Checking Contest Awards
 
+### In 2021
+
+
+This tool  won the following awards at the [Model-Checking Contest 2021 edition](https://mcc.lip6.fr/2021/) :
+
+ * Reachability, UpperBounds, GlobalProperties gold :  <img src="http://mcc.lip6.fr/certificates/2021/gold-Reachability-2021.png" alt="Gold Reachability" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2021/gold-UpperBounds-2021.png" alt="Gold Upper bounds" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2021/gold-GlobalProperties-2021.png" alt="Gold Global Properties" width="50px" height="50px"> 
+ * CTL, LTL silver :  <img src="http://mcc.lip6.fr/certificates/2021/silver-CTL-2021.png" alt="silver CTL" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2021/silver-LTL-2021.png" alt="silver LTL" width="50px" height="50px">
+  * StateSpace bronze :  <img src="http://mcc.lip6.fr/certificates/2021/bronze-StateSpace-2021.png" alt="Bronze StateSpace" width="50px" height="50px">
+
+It thus was on the podium of *all* categories of the contest, and outright won half of them.
+
+### In 2020
+
 This tool  won the following awards at the [Model-Checking Contest 2020 edition](https://mcc.lip6.fr/2020/) :
 
  * Reachability gold : <img src="http://mcc.lip6.fr/certificates/2020/gold-Reachability-2020.png" alt="Gold Reachability" width="50px" height="50px">
- * CTL, LTL, StateSpace bronze : 
- <img src="http://mcc.lip6.fr/certificates/2020/bronze-CTL-2020.png" alt="Bronze CTL" width="50px" height="50px">
- <img src="http://mcc.lip6.fr/certificates/2020/bronze-LTL-2020.png" alt="Bronze LTL" width="50px" height="50px">
- <img src="http://mcc.lip6.fr/certificates/2020/bronze-StateSpace-2020.png" alt="Bronze StateSpace" width="50px" height="50px">
+ * CTL, LTL, StateSpace bronze :  <img src="http://mcc.lip6.fr/certificates/2020/bronze-CTL-2020.png" alt="Bronze CTL" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2020/bronze-LTL-2020.png" alt="Bronze LTL" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2020/bronze-StateSpace-2020.png" alt="Bronze StateSpace" width="50px" height="50px">
 
 It also got the second place (silver ?) in the [Deadlock Detection](https://mcc.lip6.fr/2020/index.php?CONTENT=results/ReachabilityDeadlock.html&TITLE=Results%20for%20ReachabilityDeadlock) category, though in 2020 this category was merged into "GlobalProperties" (for the first time) so there is no related medal.
 
-In pure symbolic and structural reduction mode it also participated in conjunction with Lola, as the tool ITS-Lola. 
+In pure symbolic and structural reduction mode it also participated in conjunction with Lola, as the tool ITS-Lola and won several awards. 
 ITS-lola project lives here https://github.com/yanntm/its-lola.
+
+### Previous years
+
+The tool gathered many medals in the MCC and has been participating since the first edition. 
+The 2020 submission is however a major landmark with new strategies described in the paper "Structural Reductions Revisited" published at PetriNets 2020.
+
+See the contest pages for more details on the awards won for previous years.
 
 ## Usage
 
