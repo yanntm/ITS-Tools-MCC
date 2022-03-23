@@ -21,5 +21,5 @@ fi
 
 VERSION=$(ls $BINDIR/itstools/plugins/fr.lip6.move.gal.application.pnmcc_* | sed s/.jar// | perl -pe 's/.*\.//g')
 echo "Running Version $VERSION"
-$BINDIR/itstools/its-tools  -data $1/workspace  -pnfolder $1 -examination $2 -spotpath $BINDIR/ltlfilt -z3path $BINDIR/z3/bin/z3 -yices2path $BINDIR/yices/bin/yices ${@:3} -vmargs -Dosgi.locking=none -Declipse.stateSaveDelayInterval=-1 -Dosgi.configuration.area=/tmp/.eclipse -Xss128m -Xms40m -Xmx8192m
+$BINDIR/itstools/its-tools  -data @none  -pnfolder $1 -examination $2 -spotpath $BINDIR/ltlfilt -z3path $BINDIR/z3/bin/z3 -yices2path $BINDIR/yices/bin/yices ${@:3} -vmargs -Dosgi.locking=none -Declipse.stateSaveDelayInterval=-1 -Dosgi.configuration.area=@none -Xss128m -Xms40m -Xmx8192m
 
