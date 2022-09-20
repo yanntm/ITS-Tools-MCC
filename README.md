@@ -18,7 +18,7 @@ This tool  won the following awards at the [Model-Checking Contest 2022 edition]
 
 It can be noted that although ITS-Tools went from Gold Reachability in 2021 to Silver in 2022, this was in fact due to a run error from the contest organizers. This is  visible if you search DNC in [this page](https://mcc.lip6.fr/index.php?CONTENT=results/ReachabilityCardinality.html&TITLE=Results%20for%20ReachabilityCardinality) or [here](https://mcc.lip6.fr/index.php?CONTENT=results/ReachabilityFireability.html&TITLE=Results%20for%20ReachabilityFireability). These DNC answers from ITS-Tools are all bugs in the MCC managed experiment, not bugs in ITS-Tools. 
 
-Since this was not diagnosed after the contest results were announced, the 2022 results stand with ITS-Tools in silver. But Gold2021 (i.e. ITS-Tools from 2021) did get the best score on Reachability in 2022 (in front of Tapaal), and we know that ITS-Tools 2022 was improved with respect to 2021 so we are confident that in 2023 we will reclaim the Gold in reachability.
+Since this was not diagnosed before the contest results were announced, the 2022 "Reachability" results stand with ITS-Tools in Silver and [Tapaal](https://www.tapaal.net/) in Gold. But Gold2021 (i.e. ITS-Tools from 2021) did get the best score on Reachability in 2022 (in front of Tapaal), and we know that ITS-Tools 2022 was improved with respect to 2021 so we are confident that in 2023 we will reclaim the Gold in reachability.
 
 ### In 2021
 
