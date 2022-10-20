@@ -11,5 +11,5 @@ st_inv = spot.is_stutter_invariant(aut)
 cl_inv = spot.product(spot.closure(aut), neg).is_empty()
 sl_inv = spot.product(spot.sl(aut), neg).is_empty()
 
-print('#is_stutter,is_sl_ins,is_cl_ins')
+print('#is_stutter,is_lengthening_ins,is_shortening_ins')
 print(st_inv+0, sl_inv+0, cl_inv+0)
