@@ -19,6 +19,6 @@ if [[ $BK_EXAMINATION = StateSpace && -f modelMain.xml ]] ;
 then
 $BINDIR/its-reach-linux64 -i modelMain.xml -t ITSXML -ssDR 5 --stats | sed 's/Max variable value :/STATE_SPACE MAX_TOKEN_IN_PLACE /' | sed 's/Maximum sum along a path :/STATE_SPACE MAX_TOKEN_PER_MARKING /' | sed 's/Exact state count :/STATE_SPACE STATES /' | sed 's/Total edges in reachability graph :/STATE_SPACE TRANSITIONS /'
 else
-$BINDIR/runeclipse.sh $MODEL $BK_EXAMINATION --analyze-sensitivity -timeout $BK_TIME_CONFINEMENT
+$BINDIR/runeclipse.sh $MODEL $BK_EXAMINATION --reduce-with-sensitivity -timeout $BK_TIME_CONFINEMENT
 fi
 
