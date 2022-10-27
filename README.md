@@ -50,6 +50,15 @@ The 2020 submission is however a major landmark with new strategies described in
 
 See the contest pages for more details on the awards won for previous years.
 
+## Dependencies
+
+The install_all.sh deploys :
+* ITS-tools command line latest version for Linux, taken from it's main repository https://github.com/lip6/ITSTools 
+* Microsoft Z3 binaries for linux, used as our SMT solution engine, taken from their repository https://github.com/Z3Prover/z3
+* LTSmin model checker, this tool is embedded in the ITSTools distribution and built here https://github.com/yanntm/LTSmin-BinaryBuilds
+* Spot's executable binaries ltlfilt, ltl2tgba, autfilt to manipulate LTL properties and automata, taken from our https://github.com/yanntm/Spot-BinaryBuilds repository
+* GreatSPN model checker, currently only used to compute variable orderings, taken from our repository https://github.com/lip6/GreatSPN-BinaryBuild
+
 ## Usage
 
 As this tool conforms to the Model-Checking contest rules, please see the [MCC instructions](https://mcc.lip6.fr/pdf/MCC2020-SubmissionManual.pdf) to see how these `BenchKit_head.sh` scripts are meant to be invoked, and what is expected outputs from the tool in terms of verdict reporting.
