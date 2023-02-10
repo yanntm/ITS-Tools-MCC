@@ -73,6 +73,13 @@ If you are not running in the default MCC path `/home/mcc/BenchKit`, also define
 
 Finally invoke `BenchKit_head.sh` script.
 
+For instance, after changing directory to where a `model.pnml` and `Examination.xml` files are present,
+
+```
+export BK_EXAMINATION=StateSpace ; export BK_BIN_PATH=/home/ythierry/git/ITS-Tools-MCC/bin/ ; export BK_TIME_CONFINEMENT=300; export BK_INPUT=$PWD ; $BK_BIN_PATH/../BenchKit_head.sh
+```
+
+
 # Testing
 
 This tool being compliant to MCC can be tested using our MCC testing framework https://github.com/yanntm/pnmcc-tests :
