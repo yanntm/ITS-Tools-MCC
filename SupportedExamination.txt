@@ -1,0 +1,37 @@
+StateSpace COL
+
+UpperBounds COL
+
+ReachabilityDeadlock COL
+OneSafe COL
+StableMarking COL
+QuasiLiveness COL
+Liveness COL
+
+ReachabilityFireability COL
+ReachabilityCardinality COL
+
+CTLCardinality COL
+CTLFireability COL
+
+LTLCardinality COL
+LTLFireability COL
+
+StateSpace PT
+
+UpperBounds PT
+
+ReachabilityDeadlock PT
+OneSafe PT
+StableMarking PT
+QuasiLiveness PT
+Liveness PT
+
+ReachabilityFireability PT
+ReachabilityCardinality PT
+
+CTLCardinality PT
+CTLFireability PT
+
+LTLCardinality PT
+LTLFireability PT
