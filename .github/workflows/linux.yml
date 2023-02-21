@@ -16,7 +16,7 @@ jobs:
     - name: Install packages
       run: sudo apt-get install gcc libpopt-dev ;
     - name: Install ITS 
-      run: ./install_all.sh
+      run: ./install.sh
     - name: Grab test framework
       run: git clone https://github.com/yanntm/pnmcc-tests.git ; cp -r pnmcc-tests/* . ; ./install_oracle.sh
     - name: make some angio tests

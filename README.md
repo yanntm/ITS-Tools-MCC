@@ -1,7 +1,7 @@
 # ITS-Tools packaged for the Model-Checking Contest
 
  This project contains :
-* support for downloading and deploying ITS-tools. Simply run : ./install_all.sh
+* support for downloading and deploying ITS-tools. Simply run : `./install.sh`
 * wrapper scripts used in the contest, in particular `BenchKit_head.sh` that supports invocation of its-tools from the command line for PNMCC style queries
 
 
@@ -52,7 +52,7 @@ See the contest pages for more details on the awards won for previous years.
 
 ## Dependencies
 
-The install_all.sh deploys :
+The install.sh deploys :
 * ITS-tools command line latest version for Linux, taken from it's main repository https://github.com/lip6/ITSTools 
 * Microsoft Z3 binaries for linux, used as our SMT solution engine, taken from their repository https://github.com/Z3Prover/z3
 * LTSmin model checker, this tool is embedded in the ITSTools distribution and built here https://github.com/yanntm/LTSmin-BinaryBuilds
@@ -63,13 +63,13 @@ The install_all.sh deploys :
 
 As this tool conforms to the Model-Checking contest rules, please see the [MCC instructions](https://mcc.lip6.fr/pdf/MCC2020-SubmissionManual.pdf) to see how these `BenchKit_head.sh` scripts are meant to be invoked, and what is expected outputs from the tool in terms of verdict reporting.
 
-To install, simply clone this repository and run `install_all.sh` script. This build is Linux specific as these are the conditions in the contest.
+To install, simply clone this repository and run `install.sh` script. This build is Linux specific as these are the conditions in the contest.
 
 To analyze a model you need : a `model.pnml` Petri net and an `Examination.xml` property file in the current working directory.
 
 Then define the environment variables `BK EXAMINATION` (to one of `ReachabilityDeadlock,UpperBounds,ReachabilityCardinality,ReachabilityFireability,LTLFireability,LTLCardinality,CTLFireability,CTLCardinality`) and `BK TIME CONFINEMENT` (in seconds).
 
-If you are not running in the default MCC path `/home/mcc/BenchKit`, also define `BK_BIN_PATH` to the installation folder where you ran `./install_all.sh`.
+If you are not running in the default MCC path `/home/mcc/BenchKit`, also define `BK_BIN_PATH` to the installation folder where you ran `./install.sh`.
 
 Finally invoke `BenchKit_head.sh` script.
 
@@ -88,7 +88,7 @@ Set it up like this :
 ```
 git clone https://github.com/yanntm/ITS-Tools-MCC.git
 cd ITS-Tools-MCC
-./install_all.sh
+./install.sh
 git clone https://github.com/yanntm/pnmcc-tests.git
 cp -r pnmcc-tests/* .
 ./install_oracle.sh
