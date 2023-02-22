@@ -4,7 +4,7 @@
 apt-get update
 
 # packages for ITS-tools  
-apt-get install python3 unzip openjdk-17-jdk psmisc gcc libpopt-dev
+apt-get install python3 unzip openjdk-17-jdk psmisc gcc libpopt-dev gnupg2
 
 # spot python library
 wget -q -O - https://www.lrde.epita.fr/repo/debian.gpg | apt-key add -
