@@ -7,8 +7,8 @@ set -e
 
 ./install_greatspn.sh
 
-# z3 4.5 
-./install_z3.sh
+# z3  now using embedded version 
+# ./install_z3.sh
 
 # ./install_inputs.sh
 # wget --progress=dot:mega https://yanntm.github.io/pnmcc-models-2020/oracle.tar.gz
