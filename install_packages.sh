@@ -4,7 +4,7 @@
 apt-get update
 
 # packages for ITS-tools  
-apt-get -y install python3 unzip openjdk-17-jdk psmisc gcc libpopt-dev
+apt-get -y install python3 unzip openjdk-17-jdk psmisc gcc libpopt-dev libltdl-dev
 
 # spot python library
 # couldn't get this to work unfortunately.
