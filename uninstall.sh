@@ -8,5 +8,5 @@ rm -rf itstools/
 
 rm -rf greatspn/
 
-rm ltlfilt autfilt ltl2tgba 
+# rm ltlfilt autfilt ltl2tgba 
 

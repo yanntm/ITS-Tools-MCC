@@ -3,7 +3,7 @@
 set -x
 set -e
 
-./install_eclipse.sh
+./install_itstools.sh
 
 ./install_greatspn.sh
 
@@ -20,7 +20,7 @@ set -e
 # now using embedded version of LTSmin
 # ./install_ltsmin.sh
 
-
-./install_spot.sh
+# now using embedded spot
+# ./install_spot.sh
 
 mkdir -p bin/

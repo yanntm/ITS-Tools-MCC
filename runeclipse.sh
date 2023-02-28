@@ -21,5 +21,5 @@ fi
 
 VERSION=$(ls $BINDIR/itstools/plugins/fr.lip6.move.gal.application.pnmcc_* | sed s/.jar// | perl -pe 's/.*\.//g')
 echo "Running Version $VERSION"
-$BINDIR/itstools/its-tools  -pnfolder $1 -examination $2 -spotpath $BINDIR/ltlfilt -z3path $BINDIR/z3/bin/z3  ${@:3} 
+$BINDIR/itstools/its-tools  -pnfolder $1 -examination $2 -z3path $BINDIR/z3/bin/z3  ${@:3} 
 
