@@ -7,10 +7,26 @@
 
 ## Model Checking Contest Awards
 
+### In 2023
+
+ITS-Tools and its family won the following awards at the [Model-Checking Contest 2023 edition](https://mcc.lip6.fr/2023) :
+
+ * Reachability, LTL, UpperBounds, GlobalProperties gold :  <img src="http://mcc.lip6.fr/certificates/2023/gold-Reachability-2023.png" alt="Gold Reachability" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2023/gold-LTL-2023.png" alt="Gold LTL" width="50px" height="50px"> <img src="http://mcc.lip6.fr/certificates/2023/gold-UpperBounds-2023.png" alt="Gold Upper bounds" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2023/gold-GlobalProperties-2023.png" alt="Gold Global Properties" width="50px" height="50px">
+ * CTL silver : <img src="http://mcc.lip6.fr/certificates/2023/silver-CTL-2023.png" alt="silver CTL" width="50px" height="50px"> 
+  * StateSpace bronze :  <img src="http://mcc.lip6.fr/certificates/2023/bronze-StateSpace-2023.png" alt="Bronze StateSpace" width="50px" height="50px">
+
+ITS-Tools thus *won* four out of six categories of the MCC 2023, including LTL for the first time, and was on the podium of the other categories CTL and StateSpace.
+
+These good overall results are also due to our submission of several combination tools "+red" with ITS-Tools acting as a simplifying front-end for another engine. 
+While only one of these tools was competing for medals in a given category, they performed very well overall. 
+Please see the https://github.com/yanntm/MCC-drivers repository that hosts these variants.
+
+We are also building a nice analysis site for the MCC data, that can be browsed from here : [https://github.com/yanntm/MCC-analysis](https://yanntm.github.io/MCC-analysis/index.html)
+(or have a look at the related repository https://github.com/yanntm/MCC-analysis).
+
 ### In 2022
 
-
-This tool  won the following awards at the [Model-Checking Contest 2022 edition](https://mcc.lip6.fr/) :
+This tool  won the following awards at the [Model-Checking Contest 2022 edition](https://mcc.lip6.fr/2022/) :
 
  * UpperBounds, GlobalProperties gold :  <img src="http://mcc.lip6.fr/certificates/2022/gold-UpperBounds-2022.png" alt="Gold Upper bounds" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2022/gold-GlobalProperties-2022.png" alt="Gold Global Properties" width="50px" height="50px"> 
  * Reachability, CTL, LTL silver : <img src="http://mcc.lip6.fr/certificates/2022/silver-Reachability-2022.png" alt="Silver Reachability" width="50px" height="50px"> <img src="http://mcc.lip6.fr/certificates/2022/silver-CTL-2022.png" alt="silver CTL" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2022/silver-LTL-2022.png" alt="silver LTL" width="50px" height="50px">
