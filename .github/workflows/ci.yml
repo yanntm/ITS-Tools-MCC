@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  # install.sh always deploys the *latest* upstream binaries, so run periodically
+  # to catch breakage that no commit in this repository introduced.
+  schedule:
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # ITS-Tools requires a JDK 21 or newer; this is the version used in the contest VM.
+  JAVA_VERSION: '21'
+
+jobs:
+  test:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Reachability (P/T)
+            tests: 'oracle/Angiogenesis-PT-05-R*.out'
+          - name: Reachability (Colored)
+            tests: 'oracle/AirplaneLD-COL-0020-R*.out'
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v6
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: temurin
+
+      - name: Install system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gcc libpopt-dev libltdl-dev psmisc python3 unzip
+
+      - name: Deploy ITS-Tools
+        run: ./install.sh
+
+      - name: Report deployed version
+        run: |
+          version=$(ls itstools/plugins/fr.lip6.move.gal.application.pnmcc_*.jar \
+                    | sed 's/\.jar$//' | sed 's/.*_//')
+          echo "ITS-Tools pnmcc version: $version"
+          echo "### ITS-Tools \`$version\` on JDK ${{ env.JAVA_VERSION }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Set up the test harness
+        run: |
+          git clone --depth 1 https://github.com/yanntm/pnmcc-tests.git
+          cp -r pnmcc-tests/* .
+          ./install_oracle.sh
+
+      - name: Run ${{ matrix.name }} tests
+        run: |
+          shopt -s nullglob
+          tests=(${{ matrix.tests }})
+          if [ ${#tests[@]} -eq 0 ]; then
+            echo "::error::no oracle file matched '${{ matrix.tests }}'"
+            exit 1
+          fi
+          status=0
+          for t in "${tests[@]}"; do
+            echo "::group::$t"
+            # run_test.pl exits with the number of mismatched verdicts
+            if ! ./run_test.pl "$t"; then
+              echo "::error title=Regression::$t"
+              status=1
+            fi
+            echo "::endgroup::"
+          done
+          exit $status

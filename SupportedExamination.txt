@@ -35,3 +35,7 @@ CTLFireability PT
 
 LTLCardinality PT
 LTLFireability PT
+
+QuasiLivenessAll PT
+StableMarkingAll PT
+UpperBoundsAll PT
