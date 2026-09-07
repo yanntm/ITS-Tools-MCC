@@ -1,107 +1,112 @@
 # ITS-Tools packaged for the Model-Checking Contest
 
- This project contains :
-* support for downloading and deploying ITS-tools. Simply run : `./install.sh`
-* wrapper scripts used in the contest, in particular `BenchKit_head.sh` that supports invocation of its-tools from the command line for PNMCC style queries
+[![CI](https://github.com/yanntm/ITS-Tools-MCC/actions/workflows/ci.yml/badge.svg)](https://github.com/yanntm/ITS-Tools-MCC/actions/workflows/ci.yml)
 
+This project packages [ITS-Tools](https://github.com/lip6/ITSTools) for the
+[Model-Checking Contest](https://mcc.lip6.fr/) (MCC). It contains :
 
-## Model Checking Contest Awards
+* support for downloading and deploying ITS-Tools and its dependencies. Simply run `./install.sh`
+* the wrapper scripts used in the contest, in particular `BenchKit_head.sh` that supports
+  invocation of ITS-Tools from the command line for PNMCC style queries
 
-### In 2023
+Requires a JDK 21 or newer, and a Linux x86-64 host (the contest conditions).
 
-ITS-Tools and its family won the following awards at the [Model-Checking Contest 2023 edition](https://mcc.lip6.fr/2023) :
+## Results at the Model-Checking Contest
 
- * Reachability, LTL, UpperBounds, GlobalProperties gold :  <img src="http://mcc.lip6.fr/certificates/2023/gold-Reachability-2023.png" alt="Gold Reachability" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2023/gold-LTL-2023.png" alt="Gold LTL" width="50px" height="50px"> <img src="http://mcc.lip6.fr/certificates/2023/gold-UpperBounds-2023.png" alt="Gold Upper bounds" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2023/gold-GlobalProperties-2023.png" alt="Gold Global Properties" width="50px" height="50px">
- * CTL silver : <img src="http://mcc.lip6.fr/certificates/2023/silver-CTL-2023.png" alt="silver CTL" width="50px" height="50px"> 
-  * StateSpace bronze :  <img src="http://mcc.lip6.fr/certificates/2023/bronze-StateSpace-2023.png" alt="Bronze StateSpace" width="50px" height="50px">
+ITS-Tools has been on the podium of **every one of the six MCC categories, every year since 2021**:
+15 gold, 18 silver and 3 bronze medals over the six editions 2021-2026.
 
-ITS-Tools thus *won* four out of six categories of the MCC 2023, including LTL for the first time, and was on the podium of the other categories CTL and StateSpace.
+Each cell below gives the medal and how it was earned, in percentage of the official MCC score:
+for a gold, the margin **over the silver medalist**; otherwise the gap **behind the gold medalist**.
 
-These good overall results are also due to our submission of several combination tools "+red" with ITS-Tools acting as a simplifying front-end for another engine. 
-While only one of these tools was competing for medals in a given category, they performed very well overall. 
-Please see the https://github.com/yanntm/MCC-drivers repository that hosts these variants.
+| Year | StateSpace | GlobalProperties | UpperBounds | Reachability | CTL | LTL |
+|------|------------|------------------|-------------|--------------|-----|-----|
+| [2026](https://mcc.lip6.fr/2026/results.php) | 🥈 -18.4% | 🥇 +15.7% | 🥇 +3.8% | 🥈 -1.6% | 🥈 -11.8% | 🥈 -0.7% |
+| [2025](https://mcc.lip6.fr/2025/results.php) | 🥈 -20.2% | 🥇 +20.2% | 🥇 +4.3% | 🥈 -1.2% | 🥈 -19.7% | 🥈 -1.2% |
+| [2024](https://mcc.lip6.fr/2024/results.php) | 🥈 -9.9% <sup>a</sup> | 🥇 +11.6% <sup>a</sup> | 🥇 +2.1% | 🥈 -0.7% <sup>a</sup> | 🥈 -21.7% | 🥈 -4.4% <sup>b</sup> |
+| [2023](https://mcc.lip6.fr/2023/results.php) | 🥉 -23.4% | 🥇 +22.4% | 🥇 +10.0% | 🥇 +0.5% <sup>c</sup> | 🥈 -7.9% <sup>c</sup> | 🥇 +1.2% |
+| [2022](https://mcc.lip6.fr/2022/results.php) | 🥉 -32.3% | 🥇 +14.0% | 🥇 +7.8% | 🥈 -1.5% | 🥈 -23.3% | 🥈 -1.5% |
+| [2021](https://mcc.lip6.fr/2021/results.php) | 🥉 -24.8% | 🥇 +6.9% | 🥇 +6.7% | 🥇 +2.4% | 🥈 -30.0% | 🥈 -2.3% |
 
-We are also building a nice analysis site for the MCC data, that can be browsed from here : [https://github.com/yanntm/MCC-analysis](https://yanntm.github.io/MCC-analysis/index.html)
-(or have a look at the related repository https://github.com/yanntm/MCC-analysis).
+<sup>a</sup> medal collected by `GreatSPN+red`, <sup>b</sup> by `LTSMin+red`, <sup>c</sup> by `LoLA+red`:
+combination tools where ITS-Tools acts as a simplifying front-end for another solution engine.
+The MCC awards at most one medal per team and per category, so in those cases ITS-Tools itself
+scored just below the podium. These variants live in the
+[MCC-drivers](https://github.com/yanntm/MCC-drivers) repository.
 
-### In 2022
+In 2026 ITS-Tools additionally took the two new MCC awards in both categories it won: the
+**Blue Whale** award (most correct values computed) and the **James Cook** award (most *unique*
+correct results, that no other tool could produce). It competed in all 13 examinations, with a
+confidence rate of 99.998%.
 
-This tool  won the following awards at the [Model-Checking Contest 2022 edition](https://mcc.lip6.fr/2022/) :
+For the details, see the [official MCC results](https://mcc.lip6.fr/) for each year and our
+analysis site [MCC-analysis](https://yanntm.github.io/MCC-analysis/index.html)
+(sources: [yanntm/MCC-analysis](https://github.com/yanntm/MCC-analysis)).
+The year-by-year commentary, including the 2020 and earlier editions, has moved to
+[HISTORY.md](HISTORY.md).
 
- * UpperBounds, GlobalProperties gold :  <img src="http://mcc.lip6.fr/certificates/2022/gold-UpperBounds-2022.png" alt="Gold Upper bounds" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2022/gold-GlobalProperties-2022.png" alt="Gold Global Properties" width="50px" height="50px"> 
- * Reachability, CTL, LTL silver : <img src="http://mcc.lip6.fr/certificates/2022/silver-Reachability-2022.png" alt="Silver Reachability" width="50px" height="50px"> <img src="http://mcc.lip6.fr/certificates/2022/silver-CTL-2022.png" alt="silver CTL" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2022/silver-LTL-2022.png" alt="silver LTL" width="50px" height="50px">
-  * StateSpace bronze :  <img src="http://mcc.lip6.fr/certificates/2022/bronze-StateSpace-2022.png" alt="Bronze StateSpace" width="50px" height="50px">
+## Install
 
-It can be noted that although ITS-Tools went from Gold Reachability in 2021 to Silver in 2022, this was in fact due to a run error from the contest organizers. This is  visible if you search DNC in [this page](https://mcc.lip6.fr/index.php?CONTENT=results/ReachabilityCardinality.html&TITLE=Results%20for%20ReachabilityCardinality) or [here](https://mcc.lip6.fr/index.php?CONTENT=results/ReachabilityFireability.html&TITLE=Results%20for%20ReachabilityFireability). These DNC answers from ITS-Tools are all bugs in the MCC managed experiment, not bugs in ITS-Tools. 
+```sh
+git clone https://github.com/yanntm/ITS-Tools-MCC.git
+cd ITS-Tools-MCC
+./install.sh
+```
 
-Since this was not diagnosed before the contest results were announced, the 2022 "Reachability" results stand with ITS-Tools in Silver and [Tapaal](https://www.tapaal.net/) in Gold. But Gold2021 (i.e. ITS-Tools from 2021) did get the best score on Reachability in 2022 (in front of Tapaal), and we know that ITS-Tools 2022 was improved with respect to 2021 so we are confident that in 2023 we will reclaim the Gold in reachability.
+This build is Linux specific, as these are the conditions in the contest. On a bare machine
+(e.g. the contest VM) run `sudo ./install_packages.sh` first, it installs the system packages
+ITS-Tools needs: `python3 unzip openjdk-21-jdk psmisc gcc libpopt-dev libltdl-dev`.
 
-### In 2021
+`install.sh` deploys :
+* **ITS-Tools** command line, latest version for Linux, from its main repository
+  <https://github.com/lip6/ITSTools>
+* **GreatSPN**, currently only used to compute variable orderings, from our repository
+  <https://github.com/lip6/GreatSPN-BinaryBuild>
 
-
-This tool  won the following awards at the [Model-Checking Contest 2021 edition](https://mcc.lip6.fr/2021/) :
-
- * Reachability, UpperBounds, GlobalProperties gold :  <img src="http://mcc.lip6.fr/certificates/2021/gold-Reachability-2021.png" alt="Gold Reachability" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2021/gold-UpperBounds-2021.png" alt="Gold Upper bounds" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2021/gold-GlobalProperties-2021.png" alt="Gold Global Properties" width="50px" height="50px"> 
- * CTL, LTL silver :  <img src="http://mcc.lip6.fr/certificates/2021/silver-CTL-2021.png" alt="silver CTL" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2021/silver-LTL-2021.png" alt="silver LTL" width="50px" height="50px">
-  * StateSpace bronze :  <img src="http://mcc.lip6.fr/certificates/2021/bronze-StateSpace-2021.png" alt="Bronze StateSpace" width="50px" height="50px">
-
-It thus was on the podium of *all* categories of the contest, and outright won half of them.
-
-### In 2020
-
-This tool  won the following awards at the [Model-Checking Contest 2020 edition](https://mcc.lip6.fr/2020/) :
-
- * Reachability gold : <img src="http://mcc.lip6.fr/certificates/2020/gold-Reachability-2020.png" alt="Gold Reachability" width="50px" height="50px">
- * CTL, LTL, StateSpace bronze :  <img src="http://mcc.lip6.fr/certificates/2020/bronze-CTL-2020.png" alt="Bronze CTL" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2020/bronze-LTL-2020.png" alt="Bronze LTL" width="50px" height="50px">  <img src="http://mcc.lip6.fr/certificates/2020/bronze-StateSpace-2020.png" alt="Bronze StateSpace" width="50px" height="50px">
-
-It also got the second place (silver ?) in the [Deadlock Detection](https://mcc.lip6.fr/2020/index.php?CONTENT=results/ReachabilityDeadlock.html&TITLE=Results%20for%20ReachabilityDeadlock) category, though in 2020 this category was merged into "GlobalProperties" (for the first time) so there is no related medal.
-
-In pure symbolic and structural reduction mode it also participated in conjunction with Lola, as the tool ITS-Lola and won several awards. 
-ITS-lola project lives here https://github.com/yanntm/its-lola.
-
-### Previous years
-
-The tool gathered many medals in the MCC and has been participating since the first edition. 
-The 2020 submission is however a major landmark with new strategies described in the paper "Structural Reductions Revisited" published at PetriNets 2020.
-
-See the contest pages for more details on the awards won for previous years.
-
-## Dependencies
-
-The install.sh deploys :
-* ITS-tools command line latest version for Linux, taken from it's main repository https://github.com/lip6/ITSTools 
-* Microsoft Z3 binaries for linux, used as our SMT solution engine, taken from their repository https://github.com/Z3Prover/z3
-* LTSmin model checker, this tool is embedded in the ITSTools distribution and built here https://github.com/yanntm/LTSmin-BinaryBuilds
-* Spot's executable binaries ltlfilt, ltl2tgba, autfilt to manipulate LTL properties and automata, taken from our https://github.com/yanntm/Spot-BinaryBuilds repository
-* GreatSPN model checker, currently only used to compute variable orderings, taken from our repository https://github.com/lip6/GreatSPN-BinaryBuild
+The following are embedded in the ITS-Tools distribution and no longer deployed separately, but
+are built here :
+* **Microsoft Z3**, used as our SMT solution engine, from <https://github.com/Z3Prover/z3>
+* **LTSmin** model checker, built at <https://github.com/yanntm/LTSmin-BinaryBuilds>
+* **Spot**'s executables `ltlfilt`, `ltl2tgba`, `autfilt` to manipulate LTL properties and
+  automata, from <https://github.com/yanntm/Spot-BinaryBuilds>
 
 ## Usage
 
-As this tool conforms to the Model-Checking contest rules, please see the [MCC instructions](https://mcc.lip6.fr/pdf/MCC2020-SubmissionManual.pdf) to see how these `BenchKit_head.sh` scripts are meant to be invoked, and what is expected outputs from the tool in terms of verdict reporting.
+As this tool conforms to the Model-Checking Contest rules, please see the
+[MCC submission manual](https://mcc.lip6.fr/pdf/MCC2020-SubmissionManual.pdf) for how these
+`BenchKit_head.sh` scripts are meant to be invoked, and what output is expected from the tool in
+terms of verdict reporting.
 
-To install, simply clone this repository and run `install.sh` script. This build is Linux specific as these are the conditions in the contest.
+To analyze a model you need a `model.pnml` Petri net and an `Examination.xml` property file in the
+current working directory. Then define :
 
-To analyze a model you need : a `model.pnml` Petri net and an `Examination.xml` property file in the current working directory.
+* `BK_EXAMINATION` : one of `StateSpace`, `UpperBounds`, `ReachabilityDeadlock`, `OneSafe`,
+  `StableMarking`, `QuasiLiveness`, `Liveness`, `ReachabilityCardinality`,
+  `ReachabilityFireability`, `CTLCardinality`, `CTLFireability`, `LTLCardinality`, `LTLFireability`
+* `BK_TIME_CONFINEMENT` : the time limit, in seconds
+* `BK_BIN_PATH` : the installation folder where you ran `./install.sh`, if you are not running in
+  the default MCC path `/home/mcc/BenchKit`
 
-Then define the environment variables `BK EXAMINATION` (to one of `ReachabilityDeadlock,UpperBounds,ReachabilityCardinality,ReachabilityFireability,LTLFireability,LTLCardinality,CTLFireability,CTLCardinality`) and `BK TIME CONFINEMENT` (in seconds).
+Finally invoke the `BenchKit_head.sh` script. For instance, from a directory holding a
+`model.pnml` and an `Examination.xml` :
 
-If you are not running in the default MCC path `/home/mcc/BenchKit`, also define `BK_BIN_PATH` to the installation folder where you ran `./install.sh`.
-
-Finally invoke `BenchKit_head.sh` script.
-
-For instance, after changing directory to where a `model.pnml` and `Examination.xml` files are present,
-
+```sh
+export BK_EXAMINATION=StateSpace
+export BK_BIN_PATH=/home/ythierry/git/ITS-Tools-MCC/bin/
+export BK_TIME_CONFINEMENT=300
+export BK_INPUT=$PWD
+$BK_BIN_PATH/../BenchKit_head.sh
 ```
-export BK_EXAMINATION=StateSpace ; export BK_BIN_PATH=/home/ythierry/git/ITS-Tools-MCC/bin/ ; export BK_TIME_CONFINEMENT=300; export BK_INPUT=$PWD ; $BK_BIN_PATH/../BenchKit_head.sh
-```
 
+The examinations this package supports are listed in [SupportedExamination.txt](SupportedExamination.txt),
+for both P/T and colored nets.
 
-# Testing
+## Testing
 
-This tool being compliant to MCC can be tested using our MCC testing framework https://github.com/yanntm/pnmcc-tests :
+This tool being MCC compliant, it can be tested with our MCC testing framework
+[pnmcc-tests](https://github.com/yanntm/pnmcc-tests). Set it up like this :
 
-Set it up like this :
-```
+```sh
 git clone https://github.com/yanntm/ITS-Tools-MCC.git
 cd ITS-Tools-MCC
 ./install.sh
@@ -111,58 +116,60 @@ cp -r pnmcc-tests/* .
 ```
 
 Then for any test in `oracle/` you can run :
-```
+
+```sh
 ./run_test.pl oracle/Angiogenesis-PT-05-LTLF.out
-``` 
+```
 
-To ensure the build is reproducible there is a Github Actions attached to this repository that runs this exact test, see https://github.com/yanntm/ITS-Tools-MCC/actions for some logs of it running.
+To ensure the build stays reproducible, the
+[CI workflow](.github/workflows/ci.yml) of this repository runs exactly these tests on every push
+and on a weekly schedule, so it also catches breakage in the upstream binaries it downloads.
+See the [Actions tab](https://github.com/yanntm/ITS-Tools-MCC/actions) for the logs.
 
-# Additional Flags
+## Additional flags
 
-You can pass extra flags when invoking BenchKit_head.sh that will affect the behavior of the tool. 
+You can pass extra flags when invoking `BenchKit_head.sh` that will affect the behavior of the
+tool. Depending on the examination, lots of different things happen. You can modify the flags that
+are presently passed to `runeclipse.sh` in the `BenchKit_head.sh` script.
 
-* -rebuildPNML : at the end of the reduction phase, output a reduced model and property.
+### Solution engines
 
-Depending on the examination lots of different things happen. 
+Activate as many as you wish, they run in portfolio.
 
-You can modify the flags that are presently passed to `runeclipse.sh` in the `BenchKit_head.sh` script :
+* `-its` : responds to all examinations, and uses hierarchical set decision diagrams as solution
+  engine. Generates `examination.gal` and `examination.prop`/`.ctl`/`.ltl`, then calls ITS-Tools
+  and interprets the results.
+* `-smt` : only supports `ReachabilityXX`, and uses a BMC/K-induction approach reliant on Z3.
+* `-ltsmin` : supports Reachability and LTL, uses [LTSmin](https://ltsmin.utwente.nl/) as solution
+  engine. Generates `model.c`/`model.h`, compiles them to `gal.so`, runs LTSmin and interprets the
+  results.
 
-Solution engines :
-* -its responds to all examination, and uses hierarchical set decision diagrams as solution engine 
-* -smt only supports ReachabilityXX, and uses a BMC/Induction approach reliant on Z3 
-* -ltsmin supports Reachability and LTL and uses LTSmin  https://ltsmin.utwente.nl/ as solution engine
+### Variable orders
 
-Additional flags :
-* -greatspnpath $BINDIR/greatspn/ -order META : these flags make the -its engine use the variable ordering suggested by GreatSPN's heuristics. See https://github.com/greatspn/SOURCES for more values of the -order flags you could use.
-* -manyOrder divide the available time in slices to try several different variable orderings
+* `-greatspnpath $BINDIR/greatspn/ -order META` : make the `-its` engine use the variable ordering
+  suggested by GreatSPN's heuristics. See <https://github.com/greatspn/SOURCES> for more values of
+  the `-order` flag you could use.
+* `-manyOrder` : divide the available time in slices to try several different variable orderings.
 
-Solution engines, activate as many as you wish, they run in portfolio : -its -smt -ltsmin -onlyGal
+### Finer control
 
-* -its : Generates examination.gal and examination.prop/ctl/ltl, then calls ITS-tools + interprets results.
+* `-rebuildPNML` : at the end of the reduction phase, output a reduced model and property.
+* `-disablePOR` : partial order reduction is only available with the LTSmin target, but computing
+  the POR matrices can be costly, so this flag disables that. In combination with `-onlyGal` it
+  quickly maps PNML to `.c`/`.h` (plus `gal.so` if `-ltsmin` is set). In combination with
+  `-ltsmin`, it disables computation of the NES/NDS/COENABLED/DNA matrices and removes the flags
+  that activate POR from the LTSmin invocations.
+* `-onlyGal` : mostly for debug, and for further reuse of the GAL target. Builds
+  `Examination.gal`/`Examination.prop` (like `-its` but without running `its-reach`) and
+  `model.c`/`model.h` (like `-ltsmin`), but runs neither. If `-ltsmin` is set it also generates
+  `gal.so` (we can't compile without the LTSmin headers) but still does not run LTSmin.
 
-* -smt : Generate a pair of SMT solvers running BMC/KInduction for ReachabilityXXX properties.
+More options are under development to leverage other existing transformations to GAL. Please ask
+<yann.thierry-mieg@lip6.fr> if you need a command-line tool that processes some of the other
+languages we support with ITS-Tools (e.g. Uppaal xta, Tina tpn, Divine DVE, Spin promela...).
 
-* -ltsmin 
-Generate model.c/.h + compilation to gal.so + run ltsmin + interpret results
+## Acknowledgements
 
-For finer control :
-
-* -disablePOR
-Partial Order Reduction is only available with ltsmin target. 
-But computing the POR matrices can be costly, so this flag disables that.
-In combination with onlyGAL quickly maps pnml to .c/.h (+ gal.so if -ltsmin is set).
-In combination with -ltsmin, disables computation of NES/NDS/COENABLED/DNA matrices and removes flags that activate POR from ltsmin invocations.
-
-Mostly for debug, and for further reuse of the GAL target : 
-* -onlyGal
-Builds Examination.gal/Examination.prop (like -its but without running its-reach).
-Builds model.c/model.h (like -ltsmin) but does not run ltsmin.
-If ltsmin is set, also generates gal.so (we can't compile without ltsmin headers) but still does not run ltsmin.
-
-More options are under development to leverage other existing transformations to GAL, please ask <mailto:yann.thierry-mieg@lip6.fr> if you
- need a command-line tool that processes some of the other languages we support with ITS-tools (e.g. Uppaaal xta, Tina tpn, Divine DVE, Spin promela...).
-
-### Acknowledgements
- 
 Packaging and development by Yann Thierry-Mieg, working at LIP6, Sorbonne Université, CNRS.
-This project source code is released under the terms of [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
+This project source code is released under the terms of
+[GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
