@@ -21,5 +21,10 @@ fi
 
 VERSION=$(ls $BINDIR/itstools/plugins/fr.lip6.move.gal.application.pnmcc_* | sed s/.jar// | perl -pe 's/.*\.//g')
 echo "Running Version $VERSION"
-$BINDIR/itstools/its-tools  -pnfolder $1 -examination $2  ${@:3} 
+if [ -x $BINDIR/itstools/its-tools-native ] ; then
+	# the GraalVM native image of the product: no JVM, no Eclipse framework, the binaries found through plugins/
+	exec $BINDIR/itstools/its-tools-native -Dfr.lip6.binaries.root=$BINDIR/itstools/plugins -pnfolder $1 -examination $2 ${@:3}
+else
+	$BINDIR/itstools/its-tools  -pnfolder $1 -examination $2  ${@:3}
+fi
 
