@@ -28,11 +28,9 @@ for a gold, the margin **over the silver medalist**; otherwise the gap **behind 
 | [2022](https://mcc.lip6.fr/2022/results.php) | 🥉 -32.3% | 🥇 +14.0% | 🥇 +7.8% | 🥈 -1.5% | 🥈 -23.3% | 🥈 -1.5% |
 | [2021](https://mcc.lip6.fr/2021/results.php) | 🥉 -24.8% | 🥇 +6.9% | 🥇 +6.7% | 🥇 +2.4% | 🥈 -30.0% | 🥈 -2.3% |
 
-<sup>a</sup> medal collected by `GreatSPN+red`, <sup>b</sup> by `LTSMin+red`, <sup>c</sup> by `LoLA+red`:
-combination tools where ITS-Tools acts as a simplifying front-end for another solution engine.
+<sup>a</sup> medal collected by `GreatSPN+red`, <sup>b</sup> by `LTSMin+red`, <sup>c</sup> by `LoLA+red`.
 The MCC awards at most one medal per team and per category, so in those cases ITS-Tools itself
-scored just below the podium. These variants live in the
-[MCC-drivers](https://github.com/yanntm/MCC-drivers) repository.
+scored just below the podium. See [The "+red" combination tools](#the-red-combination-tools) below.
 
 In 2026 ITS-Tools additionally took the two new MCC awards in both categories it won: the
 **Blue Whale** award (most correct values computed) and the **James Cook** award (most *unique*
@@ -44,6 +42,30 @@ analysis site [MCC-analysis](https://yanntm.github.io/MCC-analysis/index.html)
 (sources: [yanntm/MCC-analysis](https://github.com/yanntm/MCC-analysis)).
 The year-by-year commentary, including the 2020 and earlier editions, has moved to
 [HISTORY.md](HISTORY.md).
+
+## The "+red" combination tools
+
+A good share of the medals above were collected by *combination* tools, submitted under names such
+as `LoLA+red`, `GreatSPN+red` or `LTSMin+red`. In these, ITS-Tools is used purely as a front-end:
+it applies structural reductions, SMT-based simplification and query rewriting, then hands the
+residual model and the remaining queries to another engine that does the actual verification.
+The reductions are worth several places in the ranking whichever back-end they are plugged into.
+
+These are built with the [MCC-drivers](https://github.com/yanntm/MCC-drivers) project, which is how
+you get the `+red` family. It wraps a whole set of current and past MCC competitors behind one
+MCC-compliant `BenchKit_head.sh` — currently
+[LoLA](https://theo.informatik.uni-rostock.de/theo-forschung/tools/lola/),
+[LTSmin](https://ltsmin.utwente.nl/),
+[Marcie](https://www-dssz.informatik.tu-cottbus.de/DSSZ/Software/Marcie),
+[pnmc](https://github.com/ahamez/pnmc),
+[PetriSpot](https://github.com/yanntm/PetriSpot),
+[Smart](https://asminer.github.io/smart/),
+[SMPT](https://github.com/nicolasAmat/SMPT),
+[Tapaal](https://www.tapaal.net/) and
+[GreatSPN](https://github.com/greatspn/SOURCES).
+Setting `BK_TOOL` picks the engine, and the suffix `xred` (e.g. `BK_TOOL=tapaalxred`) is what turns
+it into the `+red` variant by running the ITS-Tools reducer first. It is also a convenient way to
+run any of these tools on MCC inputs, reductions or not.
 
 ## Install
 
