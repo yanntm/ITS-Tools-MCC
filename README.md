@@ -156,7 +156,15 @@ are presently passed to `runeclipse.sh` in the `BenchKit_head.sh` script.
 
 ### Solution engines
 
-Activate as many as you wish, they run in portfolio.
+The default drivers enable `-its` and `-smt`. LTSmin is disabled because
+its small additional coverage includes incorrect verdicts: in the RC/RF
+campaign with build 202609101624, it contributed nine oracle-confirmed
+answers and one disagreement out of 60,670 answers. The disagreement is
+BridgeAndVehicles-COL-V20P20N10-ReachabilityCardinality-2024-00: LTSmin
+reported FALSE with `--no-V` enabled, against TRUE from ITS-Tools, TAPAAL
+and 2025-gold. The cause remains unresolved.
+
+Engines can be enabled explicitly and run in portfolio.
 
 * `-its` : responds to all examinations, and uses hierarchical set decision diagrams as solution
   engine. Generates `examination.gal` and `examination.prop`/`.ctl`/`.ltl`, then calls ITS-Tools
